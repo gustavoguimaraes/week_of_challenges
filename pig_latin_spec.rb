@@ -4,7 +4,7 @@ pig = Pig_latin.new("lala")
 describe "Pig_latin , #string" do 
 
 	it "should return string name " do 
-		expect(pig.string).to eq("lala")
+		expect(pig.string).to eq(["l", "a", "l", "a"])
 	end
 end
 

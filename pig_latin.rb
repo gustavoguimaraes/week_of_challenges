@@ -14,72 +14,54 @@ class Pig_latin
 	attr_accessor :string
 
 	def initialize(string)
-		@string = string
+		@string = string.split(//)
 	end
 
-	 def pig_latinize
-	 	b =[]
+	
+	def pig_latinize
+	 			
+ 		if  string[0] == "a"|| string[0] == "e"||string[0] == "i" || string[0] == "o" ||
+ 			string[0] == "u"
 
-	 	a = string.split(//)
-	 	
-		 if a[0..2] != (/[aeiou]/) 
-		 
-		 		b << a[0..2]
-		 		c = b.unshift("-").push("ay")
-	 			c.unshift(a[3..-1])
-	 			ap c.join("")
-		 
-		 elsif a[0..1] != (/[aeiou]/) 
-		 		b << a[0..1]
-		 		c = b.unshift("-").push("ay")
-	 			c.unshift(a[2..-1])
-	 			ap c.join("")
-		 
-		 elsif a[0] != (/[aeiou]/)
-		 		b << a[0]
-		 		c = b.unshift("-").push("ay")
-	 			c.unshift(a[1..-1])
-	 			ap c.join("")
+ 			start_with_vowel
 
-		 elsif a[0]== (/[aeiou]/) && a[1] != (/[aeiou]/)
-		 	b << a[1]
-		 	c = b.unshift("-").push("ay")
-	 			c.unshift(a[2..-1])
-	 			ap c.join("")
+ 		else
 
-		 elsif a[0..1] == (/[aeiouy]/)
-		 		b << a[2]
-		 		c = b.unshift("-").push("ay")
-	 			c.unshift(a[3..-1])
-	 			ap c.join("")
-		 
-		 elsif a[0]== (/[aeiou]/) && a[1] != (/[aeiou]/)
-		 	b << a[1]
-		 	c = b.unshift("-").push("ay")
-	 			c.unshift(a[2..-1])
-	 			ap c.join("")
+		 	vowel_index = string.find_index do |element|
+		 		 element == "a" || element == "e" || element == "i" || element == "o" || element == "u"
+			 end
 
-		 else
-		 	b<< a[0]
-		 	c = b.unshift("-").push("ay")
-	 			c.unshift(a[1..-1])
-	 			ap c.join("")
+		last_consonant = []
 		 
+		last_consonant << string[0..vowel_index-1]
+
+		ending = last_consonant.unshift("-").push("ay")
+
+		whole_word = ending.unshift(string[vowel_index..-1])
+
+		whole_word.join("")
+
 		 end
 
+	end
+			 
+	def start_with_vowel
+	 	vowel_index = string.find_index do |element|
+	 		 element[0] == "a" || element[0] == "e" || element[0] == "i" || element[0] == "o" || element[0] == "u"
+		 end
+		
+		way_array =[]
 
-	 end
+		way_array << string.push("way")
 
+		way_array.join("")
+
+	end
 
 end	
 
 
+pig = Pig_latin.new("lala") 
 
-pig = Pig_latin.new("theo") #=> ala-lay
-
-pig.pig_latinize
-
-
-
-
- 
+ap pig.pig_latinize
+		 
