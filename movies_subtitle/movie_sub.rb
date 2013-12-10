@@ -108,10 +108,10 @@ attr_accessor :input_file, :seconds
 
 end
 
-# sub = Subtitle.new("625
-# 00:03:10,500 --> 00:00:13,000
-# The government has a new policy...")
+sub = Subtitle.new("625
+00:03:10,500 --> 00:00:13,000
+The government has a new policy...")
 
-# sub.options
+sub.options
 
 
