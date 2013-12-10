@@ -20,7 +20,7 @@ class Pig_latin
 
 	def options
 		 while true
-		 puts "Type the word you would like to translate to pig latin or type exit to end application"
+		 puts "Type a word or sentences you would like to translate into pig latin. Or type exit to end application"
 		 ans = gets.chomp
 			 if ans == "exit"
 			 	break
